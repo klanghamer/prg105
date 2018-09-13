@@ -35,10 +35,10 @@ for num in range(1, 11):
 # You can assume integers
 
 total = 0
-for num in range(5):
-    score = input("Enter a number: ")
-    total += num
-    print(total)
+for num in range(0, 5):
+    the_num = int(input("Enter a number: "))
+    total += the_num
+print(total)
 
 # TODO 4.5 Sentinel Value
 # Create a variable to store a total amount
@@ -49,17 +49,19 @@ for num in range(5):
 
 total = 0
 count = 0
-
-print("Enter a test score between 0 and 100")
-score = int(input("Test score: "))
+score = 0
 
 while score != -1:
-    count += 1
-    total += score
+    score = int(input("Please enter test score. Enter -1 when finished.:  "))
+    if score != 1:
+        count += 1
+        total += score
 
-print("You entered: " + count + " scores.")
-print("Your average score is: " + total / count +) 
+print("You entered: " + str(count) + " scores.")
+print("The total of all scores was " + str(total))
 
+average = total / count
+print("The average score was " + format(average, ",.2f"))
 
 # TODO 4.6 validating data
 # Ask the user to enter a number between 1 and 10.
@@ -72,4 +74,3 @@ num = int(input("Enter a number between 1 and 10: "))
 while num < 0 or num > 10:
     print("Number cannot be less than 1 or higher than 10. ")
     num = int(input("Enter a correct number between 1 and 10: "))
-
