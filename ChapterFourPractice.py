@@ -48,9 +48,17 @@ for num in range(5):
 # Display the total, the count and the average (total / count)
 
 total = 0
-count = 5
+count = 0
 
-# I don't understand this one.
+print("Enter a test score between 0 and 100")
+score = int(input("Test score: "))
+
+while score != -1:
+    count += 1
+    total += score
+
+print("You entered: " + count + " scores.")
+print("Your average score is: " + total / count +) 
 
 
 # TODO 4.6 validating data
