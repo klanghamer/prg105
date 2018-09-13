@@ -53,7 +53,7 @@ score = 0
 
 while score != -1:
     score = int(input("Please enter test score. Enter -1 when finished.:  "))
-    if score != 1:
+    if score != -1:
         count += 1
         total += score
 
