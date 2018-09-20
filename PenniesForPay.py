@@ -14,10 +14,10 @@ print("Days Worked | Amount Earned That Day")
 print("------------------------------------")
 
 for day in range(days_worked):
-    pennies_day = 2 ** day
-    pennies += pennies_day
-    print("\t", str(day + 1), "| \t $", "{:15,.2f}".format(pennies_day))
+    money = 2 * money
+    pennies += money
+    print("\t", str(day + 1), "| \t $", "{:15,.2f}".format(money))
 
 total = pennies * .01
 
-print("\nTotal Earned over", str(days_worked), "is: $", str(total))
+print("\nTotal Earned over", str(days_worked), "is: $", format(money, ',.2f'))
