@@ -1,3 +1,6 @@
+import random
+import math
+
 """
     Complete all of the TODO directions
     The number next to the TODO represents the chapter
@@ -130,8 +133,6 @@ main4()
 # Add a statement importing the random library
 # Add the global constant PI with a value of 3.14 before the main5 function
 
-import random
-
 
 def main5():
     r = random.randint(1, 10)
@@ -180,7 +181,6 @@ main6()
 # write a statement that uses the ceil function on the following variable
 # number_to_round = 4.243
 
-import math
 
 
 def main7():
