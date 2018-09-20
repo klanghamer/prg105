@@ -16,7 +16,7 @@ print("------------------------------------")
 for day in range(days_worked):
     money = 2 * money
     pennies += money
-    print("\t", str(day + 1), "| \t $", "{:15,.2f}".format(money))
+    print(format(day, "20,.0f") + " | $ " + format(money, "20,.2f"))
 
 total = pennies * .01
 
