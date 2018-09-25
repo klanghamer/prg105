@@ -15,13 +15,13 @@ def main():
     score4 = float(input("What is your fourth test score?: "))
     score5 = float(input("What is your fifth test score?: "))
     average = calc_average(score1, score2, score3, score4, score5)
-    determine_grade(average)
+    determine_grade(average)  # Have to add average here in order to pass it down
     print("Your average score is a " + str(average))
-    print("Your average letter grade is " + determine_grade(average))
+    print("Your average letter grade is " + determine_grade(average))  # How to print the letter
 
 
 def calc_average(score1, score2, score3, score4, score5):
-    average = int(score1 + score2 + score3 + score4 + score5) / 5
+    average = int(score1 + score2 + score3 + score4 + score5) / 5  # calculate the average
     return average
 
 
