@@ -13,27 +13,36 @@ You can test for ValueErrors by using this data file: numbers2.txtPreview the do
 
 
 def main():
-    filename = "numbers2.txt"
-    input_file = open(filename, "r")
-    record = input_file.readline()
-    record = record.rstrip("\n")
+    count = 0
+    total = 0
+    record = ""
+    filename = ""
 
-    while record != "":
-        print(record)
-        record = input_file.readline()
-        record = record.rstrip("\n")
+    try:
+        filename = "numbers.txt"
         input_file = open(filename, "r")
+        record = input_file.readline()
+        record = int(record.rstrip("\n"))
 
-        try:
+        while record:
+            print(record)
+            total += record
+            count += 1
+            record = input_file.readline()
+            record = record.rstrip("\n")
             record = int(record)
-        except ValueError:
-            print("There was non-numeric data in this file. ")
-            print("Processing of this file has stopped.\n", "\t", record)
-            break
-        except IOError:
-            print("Could not find " + filename)
 
-    input_file.close()
+        input_file.close()
+        print("There were " + str(total) + " numbers.")
+        print("The total of all numbers was: " + str(count))
+        print("The average of the numbers was: " + format(total / count), ",.2f")
+
+    except IOError:
+        print("Could not find " + filename)
+
+    except ValueError:
+        print("There was non-numeric data in this file.")
+        print("Processing of this file has stopped.\n", "\t", record)
 
 
 main()
