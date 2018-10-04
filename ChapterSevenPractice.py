@@ -56,8 +56,8 @@ print(work_days)
 # test to see if "Tue" is in the list days, print yes, Tue is in the list or no, Tue is not in the list
 
 def main():
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-    if "tues" in days:
+    day = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    if "tues" in day:
         print("Yes")
     else:
         print("Tues is not in the list.")
@@ -100,7 +100,6 @@ print(list3)
 
 print("max", max(list3))
 
-
 # TODO 7.6 Copying Lists
 # copy the list months to the variable months_of_the_year
 # print the values in months_of_the_year
@@ -121,7 +120,7 @@ print("The total of the list is", total)
 
 average = total / 10
 
-print("The average of the list is:", average)
+print("The average of the list is:", format(average, ",.2f"))
 
 # open the file states in read mode, read the contents of the file into the list states_list and print the
 # contents of states_list on screen
@@ -142,9 +141,15 @@ while index < len(states_list):
 # Create a two dimensional list that has the months of the year and the days in each month during a non leap year
 # print the contents of the list
 
-""" Need help """
+month_days = [['Jan', 30], ['Feb', 28], ['March', 31],
+              ['April', 30], ['May', 31], ['June', 30],
+              ['July', 31], ['Aug', 31], ['Sept', 30],
+              ['Oct', 31], ['Nov', 30], ['Dec', 31]]
+print(month_days)
 
 # print just the values for index 3,0 and 3,1
+
+print(month_days[3, 0], [3, 1])
 
 # TODO 7.9 Tuples
 # convert the months list to a tuple
