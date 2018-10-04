@@ -15,8 +15,8 @@ print(days)
 
 # Create a list with 5 items, set them all to 0, use the Repetition Operator ( * )
 
-list = [0] * 5
-print(list)
+a_list = [0] * 5
+print(a_list)
 
 # print the contents of your days list using the for operator
 
@@ -25,15 +25,11 @@ for d in days:
 
 # print the list item that holds the value Saturday from the days list by using it's index
 
-index = 0
-while index == 6:
-    print(days[index])
-    index += 1
+print("Print list item," + days[7])
 
 # set the size variable to hold the length of the list days using the len function
 
-days2 = ['mon', 'tues', 'wed', 'thurs', 'fri', 'sat', 'sun']
-size = len(days2)
+size = len(days)
 
 # concatenate the two following lists together, storing the value in list3 - remove the """ """ to test
 
@@ -57,7 +53,7 @@ print(work_days)
 
 def main():
     day = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-    if "tues" in day:
+    if "tue" in day:
         print("Yes")
     else:
         print("Tues is not in the list.")
@@ -74,7 +70,7 @@ months = list(["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept"]
 months.append("Oct")
 months.append("Nov")
 months.append("Dec")
-print(months)
+print("Months: ", months)
 
 # get the index of "May" from the months list and print it on screen
 
@@ -104,7 +100,6 @@ print("max", max(list3))
 # copy the list months to the variable months_of_the_year
 # print the values in months_of_the_year
 
-months = ['jan', 'feb', 'march', 'april', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec']
 months_of_the_year = months
 print(months_of_the_year)
 
@@ -135,7 +130,7 @@ while index < len(states_list):
     states_list[index] = states_list[index].rstrip('\n')
     index += 1
 
-    print(states_list)
+print(states_list)
 
 # TODO 7.8 Two-Dimensional Lists
 # Create a two dimensional list that has the months of the year and the days in each month during a non leap year
@@ -149,11 +144,10 @@ print(month_days)
 
 # print just the values for index 3,0 and 3,1
 
-print(month_days[3, 0], [3, 1])
+print("Index of 3,0 and 3,1: ", month_days[3][0], month_days[3][1])
 
 # TODO 7.9 Tuples
 # convert the months list to a tuple
 
-months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept"]
 months_tuple = tuple(months)
 print(months_tuple)
