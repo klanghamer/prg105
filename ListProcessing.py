@@ -36,7 +36,7 @@ def generate_random():
     for num in range(1, 20):
         my_random = random.randint(0, 100)  # To import the random numbers
         random_integers.append(my_random)
-        return random_integers
+    return random_integers
 
 
 def display(num_list, input_num):
@@ -50,3 +50,4 @@ def display(num_list, input_num):
 
 
 main()
+
