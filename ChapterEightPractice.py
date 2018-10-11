@@ -25,7 +25,11 @@ print()
 # Use the index with negative numbers to print the letters from the last name "Schmidt" in the
 # name variable
 
-print(name[-7], name[-6], name[-5], name[-4], name[-3], name[-2], name[-1])
+current_letter = -7
+while current_letter < 0:
+    print(name[current_letter])
+    current_letter += 1
+
 
 # TODO 8.2 String slicing
 # use string slicing to assign the middle name "Jacob" from name to the variable middle, replace the ""
@@ -72,3 +76,4 @@ print(new_name)
 
 name_list = name.split()
 print(name_list)
+
