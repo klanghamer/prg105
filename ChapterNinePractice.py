@@ -29,14 +29,24 @@ for key in miles_ridden:
 
 # get the value for June 3 and print it, if not found display 'Entry not found', replace the ""
 
-value = ""
+value = "June 3"
 print(value)
 
+if value in miles_ridden:
+    print("The miles ridden for: " + value + " " + str(miles_ridden[value]))
+else:
+    print(value + " was not found.")
+    
+    
 # get the value for June 6 and print it, if not found display 'Entry not found' replace the ""
 
-value = " "
+value2 = "June 6"
+print(value2)
+
 if value2 in miles_ridden:
-    print(value2 + " was not found")
+    print("The miles ridden for: " + value2 + " " + str(miles_ridden[value2]))
+else:
+    print(value2 + " was not found.")
 
 # Use the items method to print the miles_ridden dictionary
 
