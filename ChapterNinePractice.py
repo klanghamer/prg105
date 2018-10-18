@@ -5,6 +5,7 @@
     Your file should compile error free
     Submit your completed file
 """
+import pickle
 
 # TODO 9.1 Dictionaries
 # Finish creating the following dictionary by adding three more people and birthdays
@@ -36,8 +37,8 @@ if value in miles_ridden:
     print("The miles ridden for: " + value + " " + str(miles_ridden[value]))
 else:
     print(value + " was not found.")
-    
-    
+
+
 # get the value for June 6 and print it, if not found display 'Entry not found' replace the ""
 
 value2 = "June 6"
@@ -79,8 +80,7 @@ days = {'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun
 
 # get the number of elements from the days set and print it
 
-len(days)
-print(len(days))
+print("There were: " + str(len(days)) + " elements in the set.")
 
 # Remove Saturday and Sunday from the days set
 
@@ -99,8 +99,6 @@ if 'Mon' not in days:
 # TODO 9.3 Serializing Objects (Pickling)
 
 # import the pickle library
-
-import pickle
 
 # create the output file log and open it for binary writing
 
