@@ -31,20 +31,25 @@ Suggestion: Try using Parallel Lists (see optional references).
 
 
 def main():
-    digits = ("1", "2", "2", "2", "3", "3", "3", "4", "4", "4", "5", "5", "5", "6", "6", "6", "7", "7", "7", "7",
-              "8", "8", "8", "9", "9", "9", "9", "-")
+    digits = ["0", "1", "2", "2", "2", "2", "3", "3", "3", "3", "4", "4", "4", "4", "5", "5", "5", "5", "6", "6", "6", "6",
+              "7", "7", "7", "7", "7", "8", "8", "8", "8", "9", "9", "9", "9", "9", "-"]
 
-    alpha = ("1", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-             "U", "V", "W", "X", "Y", "Z", "-")
+    alpha = ["0", "1", "2", "A", "B", "C", "3", "D", "E", "F", "4", "G", "H", "I", "5", "J", "K", "L", "6", "M", "N",
+             "O", "7", "P", "Q", "R", "S", "8", "T", "U", "V", "9", "W", "X", "Y", "Z", "-"]
 
     phone_num = input("Please enter the phone number (1-800-get-food) that you want to convert to numbers: ")
 
-    num = 0  # This is supposed to make the lines not skip but I can't figure out why I can't get it to work
-    for num in range(len(phone_num)):
-        if phone_num[num].isalpha():  # How to recognize the letters within the input
-            print(digits[alpha.index(phone_num[num])])  # Print the numeric numbers and convert to alphabetic
-        else:
-            print(phone_num[num])  # Prints statement with numbers if no alphabetic is input
+    translated_phone = ""
+
+    # This is supposed to make the lines not skip but I can't figure out why I can't get it to work
+    for num in phone_num:
+        for item in range(0, len(alpha)):
+            if num.isalpha():  # How to recognize the letters within the input
+                num = num.upper()  # Print the numeric numbers and convert to alphabetic
+            if num == alpha[item]:
+                translated_phone = translated_phone + digits[item]
+
+    print(translated_phone)
 
 
 main()
