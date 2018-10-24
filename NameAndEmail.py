@@ -33,7 +33,8 @@ def main():
     else:
         print("not valid entry")
         menu()
-    menu()
+    if choice != "quit":
+        main()
 
 
 def get_info():
@@ -41,11 +42,9 @@ def get_info():
     try:
         customer_file = open('customers.dat', 'rb')
         customers_dictionary = pickle.load(customer_file)
-    except EOFError:
-        customer_file = open('customers.dat', 'wb')
-        customers_dictionary = {}
         customer_file.close()
-
+    except FileNotFoundError:
+        customers_dictionary = {}
     return customers_dictionary
 
 
@@ -60,7 +59,7 @@ def menu():
     print("4:   Delete existing customer")
     print("5:   Quit")
     try:
-        while chosen < 1 or chosen > 5:
+        while chosen < 1 or chosen > 2:
             chosen = int(input("Please enter the number of the action you wish to initialize: "))
             if chosen < 1 or chosen > 5:
                 print("Not a valid selection.")
@@ -78,7 +77,7 @@ def menu():
 
     except ValueError:
         print("You need a numeric entry.")
-    menu()
+    main()
 
 
 def lookup(customers_lookup):
@@ -93,9 +92,6 @@ def lookup(customers_lookup):
             found = True
     if not found:
         print("That name was not found")
-    customer_file = open('customers.dat', 'wb')
-    save_file(customer_file)
-    customer_file.close()
     return customers_lookup
 
 
@@ -103,49 +99,37 @@ def add(customers_add):
     # add a new customer
     add_email = input("Enter the email you want to add: ")
     add_name = input("Enter the name associated with the email: ")
-
-    if add_email not in customers_add:
-        customers_add[add_email] = add_name
-        print(add_email + " and " + add_name + " have been added to the directory.")
-        customer_file = open('customers.dat', 'wb')
-        save_file(customer_file)
-        customer_file.close()
-        print(customer_file)
-    else:
-        print("That entry already exists.")
+    customers_add[add_email] = add_name
+    save_file(customers_add)
 
 
-def change(customer_file):
+def change(customer_change):
     # update customer information
     change_name = input("Enter the email you wish to change: ")
 
-    if change_name in customer_file:
+    if change_name in customer_change:
         name_change = input("Enter the new name: ")
-        customer_file[change_name] = name_change
+        customer_change[change_name] = name_change
     else:
         print("That email was not found.")
-    customer_file = open('customers.dat', 'wb')
-    save_file(customer_file)
-    customer_file.close()
+    save_file(customer_change)
 
 
-def delete(customer_file):
+def delete(customer_delete):
     # delete a customer
     name_delete = input("Enter the email you want to delete: ")
 
-    if name_delete in customer_file:
-        del customer_file[name_delete]
+    if name_delete in customer_delete:
+        del customer_delete[name_delete]
     else:
         print("That entry was not found.")
-    customer_file = open('customers.dat', 'wb')
-    save_file(customer_file)
-    customer_file.close()
+    save_file(customer_delete)
 
 
-def save_file(customer_file):
+def save_file(customer_pickle):
     # pickle and dump the file
     customer_file = open('customers.dat', 'wb')
-    pickle.dump('customers.dat', customer_file)
+    pickle.dump(customer_pickle, customer_file)
     customer_file.close()
     print("Information has been saved.")
 
