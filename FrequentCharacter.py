@@ -15,29 +15,33 @@ when a higher number is found
 
 """
 
-# this is a mess.
 
 def main():
-    user_string = input("Enter a phrase: ")
-    common_letters = " "
-    new_string = user_string.split()
-    old_count = 0
+    alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
+             "T", "U", "V", "W", "X", "Y", "Z"]
 
-    for char in range(len(new_string)):
-        count = 0
-        length = len(new_string)
-        alpha = 0
-        character = new_string[char]
-        while length > 0:
-            if character == new_string[alpha]:
+    user_string = input("Enter a phrase: ")
+    common_letters = ""
+    maximum = 0
+    count = 0
+
+    for char in alpha:
+        for letter in user_string:
+            if char == letter.upper():
                 count += 1
-            alpha += 1
-            length -= 1
-            if old_count <= count:
-                old_count = count
-                common_letters = character
-    total = str(common_letters)
-    print("The most common letter is: " + total.upper())
+
+        if count > maximum:
+            maximum = count
+            common_letters = char
+            count = 0
+        elif count == maximum:
+            common_letters = common_letters + " " + char
+            count = 0
+        else:
+            count = 0
+
+    print("The most common letter is ")
+    print(common_letters + " appeared " + str(maximum) + " times.")
 
 
 main()
