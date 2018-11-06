@@ -14,7 +14,6 @@ import employee
 
 
 def main():
-
     name = input("Enter Employee Name: ")
     num = int(input("Enter Employee Number: "))
     hourly = float(input("Enter Hourly Pay Rate: "))
@@ -36,5 +35,6 @@ def main():
     print("Employee Number:", main_info.get_em_num())
     print("Pay Rate:", shift_info.get_hourly_rate())
     print("Shift Number:", shift_info.get_shift_num())
+
 
 main()
