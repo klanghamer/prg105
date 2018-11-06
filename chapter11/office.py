@@ -72,9 +72,15 @@ class Desk(OfficeFurniture):
     def get_number_drawers(self):
         return self.__number_drawers
 
+    def __str__(self):
+        the_desk = ("Category: " + self.get_catagory() + "\nMaterial: " + self.get_material() +
+                    "\nLength: " + self.get_length() + "\nWidth: " + self.get_width() + "\nHeight: " +
+                    self.get_height() + "\nDrawer Location: " + self.get_location_of_drawers() +
+                    "\nNumber of Drawers: " + self.get_number_drawers())
+        return the_desk
+
 
 def main():
-
     plastic = OfficeFurniture("Plastic Chair", "16in", "32in", "16in", "$10.00")
     leather = OfficeFurniture("Leather Chair", "31in", "33in", "36in", "$1,000.00")
     floral = OfficeFurniture("Floral Chair", "23in", "31in", "34in", "$250.00")
@@ -92,6 +98,7 @@ def main():
     print("Item:", floral.get_material())
     print("Dimensions:", floral.get_length(), "x", floral.get_width(), "x", floral.get_height())
     print("Price:", floral.get_price())
+    print("-----------------------------")
 
 
 main()
