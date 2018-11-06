@@ -23,6 +23,7 @@ def main():
     print("Dimensions:", oak.get_length(), "x", oak.get_width(), "x", oak.get_height())
     print("Drawers:", oak.get_number_drawers(), "drawers located on the", oak.get_location_of_drawers(), "side.")
     print("Price:", spruce.get_price())
+    print("-----------------------------")
 
 
 main()
