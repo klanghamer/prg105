@@ -65,7 +65,7 @@ class Gui:
         miles = float(self.miles_entry.get())
         mpg = miles / tanks
 
-        self.value.set(format(mpg, ',.2'))
+        self.value.set(format(mpg, ',.2f'))
 
 
 gui = Gui()
