@@ -36,8 +36,8 @@ class CrudGUI:
 
         # create ok and quit buttons
 
-        self.ok_button = tkinter.Button(self.bottom_frame, text="OK", command=self.open_menu)
-        self.quit_button = tkinter.Button(self.bottom_frame, text="QUIT", command=self.master.destroy)
+        self.ok_button = tkinter.Button(self.bottom_frame, text="Ok", command=self.open_menu)
+        self.quit_button = tkinter.Button(self.bottom_frame, text="Quit", command=self.master.destroy)
 
         # pack buttons
         self.ok_button.pack(side='left')
@@ -87,7 +87,7 @@ class LookGUI:
 
         # buttons for bottom frame
         self.search_button = tkinter.Button(self.bottom_frame, text='Search', command=self.search)
-        self.quit_button = tkinter.Button(self.bottom_frame, text='QUIT', command=self.look.destroy)
+        self.quit_button = tkinter.Button(self.bottom_frame, text='Quit', command=self.look.destroy)
 
         # pack bottom frame
         self.search_button.pack(side='left')
@@ -149,7 +149,6 @@ class AddGUI:
         self.bottom_frame.pack()
 
     def add_value(self):  # Don't let shadow error happen
-        tkinter.messagebox.showinfo("Hey Listen", "add")
         try:
             customer_file = open(self.input_file, 'rb')
             customers = pickle.load(customer_file)
@@ -160,6 +159,9 @@ class AddGUI:
         name = self.add_entry.get()
         email = self.add_entry2.get()
         customers[email] = name
+
+        result = customers.get(name, 'Customer info added.')
+        self.value.set(result)
 
         file = open("customers.dat", 'wb')
         pickle.dump(customers, file)
@@ -289,12 +291,11 @@ class DeleteGUI:
 
         if name_delete in customers:
             del customers[name_delete]
+            result = customers.get(name_delete, 'Customer Deleted')
+            self.value.set(result)
         else:
             ex_result = customers.get('Customer does not exist')
             self.value.set(ex_result)
-
-        result = customers.get(name_delete, 'Customer Deleted')
-        self.value.set(result)
 
         file = open("customers.dat", 'wb')
         pickle.dump(customers, file)
@@ -310,13 +311,5 @@ def main():
     CrudGUI(root, input_file)
     root.mainloop()
 
-
-"""
-def save_file(customer_pickle):
-    # pickle and dump the file
-    input_file = open('customers_file.dat', 'wb')
-    pickle.dump(customer_pickle, input_file)
-    input_file.close()
-"""
 
 main()
