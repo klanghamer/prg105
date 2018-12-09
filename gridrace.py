@@ -4,10 +4,9 @@ import random
 
 
 class Human:
-    def __init__(self):
-        # self.master = master
-        self.human = tkinter.Tk()
-        # Toplevel(master)
+    def __init__(self, master):
+        self.master = master
+        self.human = tkinter.Toplevel(master)
         self.human.title('Race, Human')
         self.img_frame = tkinter.Frame(self.human)
         self.desc_frame = tkinter.Frame(self.human)
@@ -180,16 +179,3 @@ class Human:
 
     def back(self):
         self.human.destroy()
-
-
-def main():
-    # input_file = 'charlog.dat'
-    # create a window
-    # root = tkinter.Tk()
-    # call the GUI and send it the root menu
-    menu_gui = Human()
-    # control the mainloop from main instead of the class
-    # root.mainloop()
-
-
-main()
