@@ -4,22 +4,22 @@ import random
 import pickle
 
 
-class Human:
+class Tiefling:
     def __init__(self, master, input_file):
         self.master = master
-        self.human = tkinter.Toplevel(master)
+        self.tiefling = tkinter.Toplevel(master)
         self.input_file = input_file
-        self.human.title('Race: Human')
-        self.img_frame = tkinter.Frame(self.human)
-        self.desc_frame = tkinter.Frame(self.human)
-        self.name_frame = tkinter.Frame(self.human)
-        self.stat_frame = tkinter.Frame(self.human)
-        self.bottom_frame = tkinter.Frame(self.human)
-        self.human.grid()
+        self.tiefling.title('Race: Tiefling')
+        self.img_frame = tkinter.Frame(self.tiefling)
+        self.desc_frame = tkinter.Frame(self.tiefling)
+        self.name_frame = tkinter.Frame(self.tiefling)
+        self.stat_frame = tkinter.Frame(self.tiefling)
+        self.bottom_frame = tkinter.Frame(self.tiefling)
+        self.tiefling.grid()
 
         # Top Image ----------------------------------------------------
-        self.canvas = tkinter.Canvas(self.human, width=400, height=125)
-        self.pop = tkinter.Canvas(self.human)
+        self.canvas = tkinter.Canvas(self.tiefling, width=400, height=125)
+        self.pop = tkinter.Canvas(self.tiefling)
         topimage = tkinter.PhotoImage(file='neverwinter.png')
 
         self.canvas.create_image(200, 75, image=topimage)
@@ -28,14 +28,14 @@ class Human:
         # Character Image ----------------------------------------------------
         self.canvas2 = tkinter.Canvas(self.img_frame, width=400, height=150)
         self.pop = tkinter.Canvas(self.img_frame)
-        humanimage = tkinter.PhotoImage(file='humanimg.png')
+        tieflingimage = tkinter.PhotoImage(file='tieflingimg.png')
 
-        self.canvas2.create_image(200, 75, image=humanimage)
+        self.canvas2.create_image(200, 75, image=tieflingimage)
         self.canvas2.pack()
 
         # Description ----------------------------------------------------
 
-        self.desc = tkinter.Label(self.desc_frame, text='(+2 STR/+2 DEX)'
+        self.desc = tkinter.Label(self.desc_frame, text='(+2 CHA/+2 INT)'
                                                         '\nEnter your name and click Roll to see your starter stats. '
                                                         '\nYour race bonus will already be calculated in the roll. '
                                                         '\nClick generate to save your character and stats. '
@@ -127,16 +127,16 @@ class Human:
         self.name_frame.pack()
         self.stat_frame.pack()
         self.bottom_frame.pack()
-        self.human.mainloop()
+        self.tiefling.mainloop()
 
         # Random ----------------------------------------------------
 
     def rollin(self):
         result = random.randint(8, 18)
-        self.randomstr.set(result + 2)
+        self.randomstr.set(result)
 
         result = random.randint(8, 18)
-        self.randomdex.set(result + 2)
+        self.randomdex.set(result)
 
         result = random.randint(8, 18)
         self.randomcon.set(result)
@@ -145,10 +145,10 @@ class Human:
         self.randomwis.set(result)
 
         result = random.randint(8, 18)
-        self.randomint.set(result)
+        self.randomint.set(result + 2)
 
         result = random.randint(8, 18)
-        self.randomcha.set(result)
+        self.randomcha.set(result + 2)
 
         # Pick your Class and Generate Save ----------------------------------------------------
 
@@ -182,7 +182,7 @@ class Human:
 
         name = self.name_entry.get()
 
-        randoroll = ['Human\n' + self.nwclass + '\nSTR: ' + self.randomstr.get() + '\nDEX: ' + self.randomdex.get() +
+        randoroll = ['Tiefling\n' + self.nwclass + '\nSTR: ' + self.randomstr.get() + '\nDEX: ' + self.randomdex.get() +
                      '\nCON: ' + self.randomcon.get() + '\nWIS: ' + self.randomwis.get() +
                      '\nINT: ' + self.randomint.get() + '\nCHA: ' + self.randomcha.get()]
 
@@ -195,10 +195,10 @@ class Human:
         # Message box ----------------------------------------------------
 
         message = 'Hello, ' + name + ' the ' + self.nwclass + '.\nWelcome to Neverwinter.'
-        self.human.destroy()
+        self.tiefling.destroy()
         tkinter.messagebox.showinfo('The Adventure Begins', message)
 
         # Back ----------------------------------------------------
 
     def back(self):
-        self.human.destroy()
+        self.tiefling.destroy()

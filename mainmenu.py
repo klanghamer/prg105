@@ -20,6 +20,7 @@ class MainMenu:
         self.bottom_frame = tkinter.Frame(self.master)
 
         # Top Image ----------------------------------------------------
+        # http://effbot.org/tkinterbook/canvas.htm how to insert images and use label for master window
 
         self.canvas = tkinter.Canvas(self.master, width=0, height=0)
         self.pop = tkinter.Canvas(self.master)
@@ -63,6 +64,7 @@ class MainMenu:
         self.dragonborn.pack(anchor='w', padx=20)
 
         # Okay / Quit Buttons ----------------------------------------------------
+        # http://www.pythonlake.com/tkinterbuttongrid How to use grid instead of pack
 
         self.roll_button = tkinter.Button(self.bottom_frame, text='Create', command=self.open_menu)
         self.roll_button.grid(row=1, column=0, padx=20, pady=10)

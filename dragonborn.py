@@ -4,22 +4,22 @@ import random
 import pickle
 
 
-class Human:
+class Dragonborn:
     def __init__(self, master, input_file):
         self.master = master
-        self.human = tkinter.Toplevel(master)
+        self.dragonborn = tkinter.Toplevel(master)
         self.input_file = input_file
-        self.human.title('Race: Human')
-        self.img_frame = tkinter.Frame(self.human)
-        self.desc_frame = tkinter.Frame(self.human)
-        self.name_frame = tkinter.Frame(self.human)
-        self.stat_frame = tkinter.Frame(self.human)
-        self.bottom_frame = tkinter.Frame(self.human)
-        self.human.grid()
+        self.dragonborn.title('Race: Dragonborn')
+        self.img_frame = tkinter.Frame(self.dragonborn)
+        self.desc_frame = tkinter.Frame(self.dragonborn)
+        self.name_frame = tkinter.Frame(self.dragonborn)
+        self.stat_frame = tkinter.Frame(self.dragonborn)
+        self.bottom_frame = tkinter.Frame(self.dragonborn)
+        self.dragonborn.grid()
 
         # Top Image ----------------------------------------------------
-        self.canvas = tkinter.Canvas(self.human, width=400, height=125)
-        self.pop = tkinter.Canvas(self.human)
+        self.canvas = tkinter.Canvas(self.dragonborn, width=400, height=125)
+        self.pop = tkinter.Canvas(self.dragonborn)
         topimage = tkinter.PhotoImage(file='neverwinter.png')
 
         self.canvas.create_image(200, 75, image=topimage)
@@ -28,14 +28,14 @@ class Human:
         # Character Image ----------------------------------------------------
         self.canvas2 = tkinter.Canvas(self.img_frame, width=400, height=150)
         self.pop = tkinter.Canvas(self.img_frame)
-        humanimage = tkinter.PhotoImage(file='humanimg.png')
+        dragonimage = tkinter.PhotoImage(file='dragonbornimg.png')
 
-        self.canvas2.create_image(200, 75, image=humanimage)
+        self.canvas2.create_image(200, 75, image=dragonimage)
         self.canvas2.pack()
 
         # Description ----------------------------------------------------
 
-        self.desc = tkinter.Label(self.desc_frame, text='(+2 STR/+2 DEX)'
+        self.desc = tkinter.Label(self.desc_frame, text='(+2 STR/+2 CON)'
                                                         '\nEnter your name and click Roll to see your starter stats. '
                                                         '\nYour race bonus will already be calculated in the roll. '
                                                         '\nClick generate to save your character and stats. '
@@ -127,7 +127,7 @@ class Human:
         self.name_frame.pack()
         self.stat_frame.pack()
         self.bottom_frame.pack()
-        self.human.mainloop()
+        self.dragonborn.mainloop()
 
         # Random ----------------------------------------------------
 
@@ -136,10 +136,10 @@ class Human:
         self.randomstr.set(result + 2)
 
         result = random.randint(8, 18)
-        self.randomdex.set(result + 2)
+        self.randomdex.set(result)
 
         result = random.randint(8, 18)
-        self.randomcon.set(result)
+        self.randomcon.set(result + 2)
 
         result = random.randint(8, 18)
         self.randomwis.set(result)
@@ -182,7 +182,7 @@ class Human:
 
         name = self.name_entry.get()
 
-        randoroll = ['Human\n' + self.nwclass + '\nSTR: ' + self.randomstr.get() + '\nDEX: ' + self.randomdex.get() +
+        randoroll = ['Dragonborn\n' + self.nwclass + '\nSTR: ' + self.randomstr.get() + '\nDEX: ' + self.randomdex.get() +
                      '\nCON: ' + self.randomcon.get() + '\nWIS: ' + self.randomwis.get() +
                      '\nINT: ' + self.randomint.get() + '\nCHA: ' + self.randomcha.get()]
 
@@ -195,10 +195,10 @@ class Human:
         # Message box ----------------------------------------------------
 
         message = 'Hello, ' + name + ' the ' + self.nwclass + '.\nWelcome to Neverwinter.'
-        self.human.destroy()
+        self.dragonborn.destroy()
         tkinter.messagebox.showinfo('The Adventure Begins', message)
 
         # Back ----------------------------------------------------
 
     def back(self):
-        self.human.destroy()
+        self.dragonborn.destroy()
